@@ -32,7 +32,9 @@ def bruto():
         
         if options == 1: # se options for igual a 1...
             time.sleep(0.5)
-            print("\n",*nomes) # vai printar na tela a possível lista. Pode ser usado após um produto ser cadastrado (envolve a opção 2 e 3).
+            print("\n") # Espaçamento fantasma
+            print(*nomes,sep=", ") # vai printar na tela a possível lista. Pode ser usado após um produto ser cadastrado (envolve a opção 2 e 3).
+            print("\n") # Espaçamento fantasma
             time.sleep(0.5)
         
         elif options == 2: #se options for igual a 2...
@@ -44,11 +46,16 @@ def bruto():
             time.sleep(0.5)
         
         elif options == 3: # se options for igual a 3...
+
             nome = input("\nRemova um produto ou produtos: ") # Praticamente um pequeno reaproveitamento do elif de cima...
-            nomes.remove(nome) # o diferencial é que o operador vai remover uma informação gravada na var nomes, ou seja digitar o nome do produto, neste caso é o inverso da opção onde o append está.
-            time.sleep(0.5)
-            print("\nItem removido.\n") # vai printar que o item foi removido.
-            time.sleep(0.5)
+
+            if nome in nomes: # Este if e else abaixo é uma pequena verificação, sem caso do operador digitar algo errado. O If cobre a parte da função enquant o else adverte.
+                nomes.remove(nome) # O diferencial é que o operador vai remover uma informação gravada na var nomes, ou seja digitar o nome do produto, neste caso é o inverso da opção onde o append está.
+                time.sleep(0.5)
+                print("\nItem removido.\n") # vai printar que o item foi removido.
+                time.sleep(0.5)
+            else:
+                print("\nProduto não encontrado.\n")
 
         elif options == 4: # se options for igual a 4... vai parar o código.
             time.sleep(0.5)
